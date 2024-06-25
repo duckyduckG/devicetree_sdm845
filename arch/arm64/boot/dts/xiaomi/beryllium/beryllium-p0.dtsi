@@ -156,13 +156,13 @@
 	qcom,qpnp-ibb-lab-pwrdn-delay = <1000>;
 };
 
-&dsi_tianma_fhd_nt36672a_video_display {
+&dsi_tianma_fhd_nt36672a_video {
 	qcom,panel-supply-entries = <&dsi_nt36672a_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
 	qcom,platform-reset-gpio = <&tlmm 6 0>;
 };
 
-&dsi_ebbg_fhd_ft8719_video_display {
+&dsi_ebbg_fhd_ft8719_video {
 	qcom,panel-supply-entries = <&dsi_ft8719_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
 	qcom,platform-reset-gpio = <&tlmm 6 0>;
@@ -452,7 +452,6 @@
 		pinctrl-0 = <&ts_int_active_cust &ts_reset_active_cust>;
 		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
 		novatek,config-array-size = <2>;
-		panel = <&dsi_tianma_fhd_nt36672a_video_display>;
 		novatek,cfg_0 {
 			novatek,tp-vendor = <0x46>;
 			novatek,hw-version = <0x1>;
@@ -489,7 +488,6 @@
 		pinctrl-names = "pmx_ts_active", "pmx_ts_suspend";
 		pinctrl-0 = <&ts_int_active_cust &ts_reset_active_cust>;
 		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
-		panel = <&dsi_ebbg_fhd_ft8719_video_display>;
 		/* focaltech,have-key; */
 	};
 #else
@@ -508,7 +506,6 @@
 
 		touchscreen-size-x = <1080>;
 		touchscreen-size-y = <2246>;
-		panel = <&dsi_ebbg_fhd_ft8719_video_display>;
 	};
 #endif
 };
