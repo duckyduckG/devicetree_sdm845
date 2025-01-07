@@ -429,6 +429,8 @@
 			clock-names = "xo", "alternate";
 			qcom,no-accumulative-counter;
 			#freq-domain-cells = <2>;
+			qcom,cpufreq-table-0 = <300000 400000 480000 570000 650000 750000 820000 900000 980000 1050000 1120000 1200000 1300000 1400000 1500000 1600000 1700000 1800000>;
+			qcom,cpufreq-table-1 = <820000 900000 980000 1050000 1200000 1300000 1400000 1500000 1600000 1700000 1800000 1900000 2000000 2100000 2200000 2300000 2400000 2500000 2600000 2700000 2800000 2900000 3000000 3200000>;
 		};
 	};
 #endif
@@ -439,7 +441,7 @@
 	};
 
 	chosen {
-		bootargs = "rcupdate.rcu_expedited=1 rcu_nocbs=0-7 cgroup_disable=pressure";
+		bootargs = "rcupdate.rcu_normal_after_boot=1 rcu_nocbs=0-7 quiet noirqdebug kpti=off cgroup_disable=pressure";
 	};
 
 	soc: soc { };
@@ -4189,7 +4191,7 @@
 		};
 	};
 
-	lmh_dcvs0: qcom,limits-dcvs@0 {
+	lmh_dcvs0: qcom,limits-dcvs@17d78800 {
 		compatible = "qcom,msm-hw-limits";
 		interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
 		reg = <0x17d78800 0x1000>,
@@ -4200,7 +4202,7 @@
 		qcom,legacy-lmh-enable;
 	};
 
-	lmh_dcvs1: qcom,limits-dcvs@1 {
+	lmh_dcvs1: qcom,limits-dcvs@17d70800 {
 		compatible = "qcom,msm-hw-limits";
 		interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
 		qcom,affinity = <1>;
